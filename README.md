@@ -9,7 +9,7 @@
 
 ## How to use
 
-### UserScript extensions (eg. Tampermonkey)
+### UserScript extensions (eg. [Tampermonkey](https://www.tampermonkey.net/))
 
 1. Go to the [script](src/yolosmith.js) and press the "Raw" button
 
@@ -36,7 +36,7 @@
 After either method, a popup should open. If it doesn't,
 make sure to approve popups from the YOLO website.
 Fill out the fields and press the "Spam" button. A counter
-will the amount of messages sent will be updated below the button.
+with the amount of messages sent will be updated below the button.
 
 ## License
 
