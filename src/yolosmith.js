@@ -25,7 +25,7 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-(function() {
+(function () {
   // Function for POSTs
   async function postData(url = '', data = {}) {
     const response = await fetch(url, {
@@ -34,7 +34,7 @@
       cache: 'no-cache',
       credentials: 'same-origin',
       headers: {
-      'Content-Type': 'application/json;charset=UTF-8',
+        'Content-Type': 'application/json;charset=UTF-8',
       },
       redirect: 'follow',
       referrerPolicy: 'strict-origin-when-cross-origin',
@@ -45,49 +45,49 @@
 
   // Get cookies from document.cookie (used for popshow-temp-id)
   function getCookie(cname) {
-    let name = cname + "=";
+    let name = cname + '=';
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
+    for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
 
-      while (c.charAt(0) == ' ')
-      c = c.substring(1);
+      while (c.charAt(0) == ' ') c = c.substring(1);
 
-      if (c.indexOf(name) == 0)
-        return c.substring(name.length, c.length);
+      if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
     }
-    return "";
+    return '';
   }
 
   function getTokenAndSend(url, question, answer, delay, counter) {
-    setInterval(function() {
+    setInterval(function () {
       // Get reCAPTCHA token
       grecaptcha.ready(() => {
-        grecaptcha.execute('6Lc8pbEUAAAAAH1vRl91BAwIZruc_awYoPLL_9p1', { action: 'message' })
-        .then(token => {
-          // Prepare request data once the token is received
-          let requestData = {
-            cookie: getCookie('popshow-temp-id'),
-            text: answer,
-            token: token,
-            wording: question,
-          }
-          
-          // POST
-          postData(url, requestData)
-          .then(data => {
-            // Increment counter
-            if(data.code) counter.innerText = parseInt(counter.innerText) + 1;
+        grecaptcha
+          .execute('6Lc8pbEUAAAAAH1vRl91BAwIZruc_awYoPLL_9p1', {
+            action: 'message',
+          })
+          .then((token) => {
+            // Prepare request data once the token is received
+            let requestData = {
+              cookie: getCookie('popshow-temp-id'),
+              text: answer,
+              token: token,
+              wording: question,
+            };
+
+            // POST
+            postData(url, requestData).then((data) => {
+              // Increment counter
+              if (data.code)
+                counter.innerText = parseInt(counter.innerText) + 1;
+            });
           });
-        });
       });
     }, delay);
   }
 
   function buildUi() {
-    let ui =
-`<style>
+    let ui = `<style>
   @font-face {
     font-family: 'Matter';
     src: url('https://d33e26whxge87.cloudfront.net/Matter-Medium.ttf') format('truetype');
@@ -150,24 +150,26 @@
   <span id="sent">0</span>
 </div>`;
 
-    var popup = window.open('', "", "width=300, height=300, scrollbars=yes");
+    var popup = window.open('', '', 'width=300, height=300, scrollbars=yes');
     popup.document.body.innerHTML = ui;
 
     let goSpam = popup.document.querySelector('#go-spam');
     let question = popup.document.querySelector('#question');
     let answer = popup.document.querySelector('#answer');
     let rate = popup.document.querySelector('#rate');
-    let sent = popup.document.querySelector("#sent");
+    let sent = popup.document.querySelector('#sent');
 
     return [goSpam, question, answer, rate, sent];
   }
 
-  let postUrl = 'http://onyolo.com/api/v2/messages/' + window.location.pathname.substring(3);
+  let postUrl =
+    'http://onyolo.com/api/v2/messages/' +
+    window.location.pathname.substring(3);
 
   let ui = buildUi();
 
   ui[0].onclick = () => {
-    console.log("[Yolosmith] Beginning spam...");
+    console.log('[Yolosmith] Beginning spam...');
     getTokenAndSend(postUrl, ui[1].value, ui[2].value, ui[3].value, ui[4]);
-  }
+  };
 })();
