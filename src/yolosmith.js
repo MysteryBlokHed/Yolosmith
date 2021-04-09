@@ -139,7 +139,7 @@
                       <label for="rate">Rate (in ms):</label>
                   </td>
                   <td>
-                      <input type="number" id="rate" value="500">
+                      <input type="number" id="rate" min="1" value="500">
                   </td>
               </tr>
           </tbody>
@@ -150,7 +150,7 @@
   <span id="sent">0</span>
 </div>`;
 
-    var popup = window.open('', '', 'width=300, height=300, scrollbars=yes');
+    var popup = window.open('', '', 'width=350, height=350, scrollbars=no');
     popup.document.body.innerHTML = ui;
 
     let goSpam = popup.document.querySelector('#go-spam');
