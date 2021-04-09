@@ -31,9 +31,10 @@
 
 5. Paste the contents and press enter
 
-After doing either method installation method, a popup should open. If it doesn't,
-make sure to approve popups from the YOLO website. Simply fill out the fields and
-press the "Spam" button.
+After either method, a popup should open. If it doesn't,
+make sure to approve popups from the YOLO website.
+Fill out the fields and press the "Spam" button. A counter
+will the amount of messages sent will be updated below the button.
 
 ## License
 
