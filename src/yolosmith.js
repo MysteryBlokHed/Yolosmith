@@ -44,18 +44,11 @@
   }
 
   // Get cookies from document.cookie (used for popshow-temp-id)
-  function getCookie(cname) {
-    let name = cname + '=';
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-
-      while (c.charAt(0) == ' ') c = c.substring(1);
-
-      if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-    }
-    return '';
+  function getCookie(name) {
+    return document.cookie
+      .split('; ')
+      .find((row) => row.startsWith(name + '='))
+      .split('=')[1];
   }
 
   function getTokenAndSend(url, question, answer, delay, counter) {
@@ -113,44 +106,43 @@
   <h2>by MysteryBlokHed</h2>
   <h2><a href="https://github.com/MysteryBlokHed/Yolosmith">GitHub</a></h2>
   <div>
-      <table>
-          <tbody>
-              <tr>
-                  <td>
-                      <label for="question">Question:</label>
-                  </td>
-                  <td>
-                      <input type="text" id="question" placeholder="What does Yolosmith do?">
-                  </td>
-              </tr>
-              <tr>
-
-              </tr>
-              <tr>
-                  <td>
-                      <label for="answer">Answer:</label>
-                  </td>
-                  <td>
-                      <input type="text" id="answer" placeholder="Spam">
-                  </td>
-              </tr>
-              <tr>
-                  <td>
-                      <label for="rate">Rate (in ms):</label>
-                  </td>
-                  <td>
-                      <input type="number" id="rate" min="1" value="500">
-                  </td>
-              </tr>
-          </tbody>
-      </table>
-      <button id="go-spam">Spam</button>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <label for="question">Question:</label>
+          </td>
+          <td>
+            <input type="text" id="question" placeholder="What does Yolosmith do?">
+          </td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+          <td>
+            <label for="answer">Answer:</label>
+          </td>
+          <td>
+            <input type="text" id="answer" placeholder="Spam">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="rate">Rate (in ms):</label>
+          </td>
+          <td>
+            <input type="number" id="rate" min="1" value="500">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button id="go-spam">Spam</button>
   </div>
   <b>Messages Sent:</b>
   <span id="sent">0</span>
 </div>`;
 
-    var popup = window.open('', '', 'width=350, height=350, scrollbars=no');
+    let popup = window.open('', '', 'width=350, height=350, scrollbars=no');
     popup.document.body.innerHTML = ui;
 
     let goSpam = popup.document.querySelector('#go-spam');
@@ -167,6 +159,10 @@
     window.location.pathname.substring(3);
 
   let ui = buildUi();
+
+  // Set spam question to current question by default
+  const search = new URLSearchParams(location.search);
+  ui[1].value = search.get('w');
 
   ui[0].onclick = () => {
     console.log('[Yolosmith] Beginning spam...');
