@@ -11,7 +11,7 @@
 
 ### UserScript extensions (eg. Tampermonkey)
 
-1. Go to the [script](https://github.com/MysteryBlokHed/Yolosmith/blob/dev/src/yolosmith.js) and press the "Raw" button
+1. Go to the [script](src/yolosmith.js) and press the "Raw" button
 
 2. If the UserScript is not automatically installed, copy the contents
 
@@ -21,15 +21,17 @@
 
 ### Paste into console
 
-1. Copy [the contents](https://raw.githubusercontent.com/MysteryBlokHed/Yolosmith/dev/yolosmith.js) of the script
+1. Go to the [script](src/yolosmith.js) and press the "Raw" button
 
-2. Go to someone's YOLO page (eg. `http://onyolo.com/m/3M5k2AbD7l`)
+2. Copy the contents
 
-3. Open the inspector (Ctrl + Shift + I or F12)
+3. Go to someone's YOLO page (eg. `http://onyolo.com/m/3M5k2AbD7l`)
 
-4. Go to the "Console" tab
+4. Open the inspector (Ctrl + Shift + I or F12)
 
-5. Paste the contents and press enter
+5. Go to the "Console" tab
+
+6. Paste the contents and press enter
 
 After either method, a popup should open. If it doesn't,
 make sure to approve popups from the YOLO website.
