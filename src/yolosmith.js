@@ -108,12 +108,12 @@
     font-display: swap;
   }
 </style>
-<div style="text-align: center; font-family: 'Matter';">
+<div align="center" style="font-family: 'Matter';">
   <h1>Yolosmith</h1>
   <h2>by MysteryBlokHed</h2>
   <h2><a href="https://github.com/MysteryBlokHed/Yolosmith">GitHub</a></h2>
   <div>
-      <table style="margin-left: auto; margin-right: auto;">
+      <table>
           <tbody>
               <tr>
                   <td>
