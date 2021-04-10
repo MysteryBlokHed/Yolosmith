@@ -11,15 +11,13 @@
 
 ### UserScript extensions (eg. [Tampermonkey](https://www.tampermonkey.net/))
 
-1. Go to the [script](src/yolosmith.user.js) and press the "Raw" button
-
-2. If the UserScript is not automatically installed, copy the contents
-
-3. Click on your extension and choose "Create a new script"
-
-4. Paste the contents into the editor window and save (Ctrl + S)
+If you have a UserScript extension installed,
+simply go to the [script](src/yolosmith.user.js) and press the "Raw" button.
 
 ### Paste into console
+
+If you don't want to install an extension or you just want to run the code once,
+then you can just paste the code into console:
 
 1. Go to the [script](src/yolosmith.user.js) and press the "Raw" button
 
@@ -33,10 +31,14 @@
 
 6. Paste the contents and press enter
 
-After either method, a popup should open. If it doesn't,
-make sure to approve popups from the YOLO website.
-Fill out the fields and press the "Spam" button. A counter
-with the amount of messages sent will be updated below the button.
+A popup should open once you're on a YOLO page. If there is a question in the URL
+then it will be automatically used, but you can change if it you'd prefer.
+Just enter your answer and the delay, then press the "Spam" button. A counter below
+the button will increment with every message sent.
+
+Note: If you enter too low of a rate, you will be rate-limited by YOLO. You can tell
+when this happens if the sent message ocunter stops update. If this occurs, just wait
+5-10 minutes before trying again.
 
 ## License
 
