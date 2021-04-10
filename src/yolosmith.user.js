@@ -53,32 +53,34 @@
       .split('=')[1];
   }
 
-  function getTokenAndSend(url, question, answer, delay, counter) {
-    setInterval(function () {
-      // Get reCAPTCHA token
-      grecaptcha.ready(() => {
-        grecaptcha
-          .execute('6Lc8pbEUAAAAAH1vRl91BAwIZruc_awYoPLL_9p1', {
-            action: 'message',
-          })
-          .then((token) => {
-            // Prepare request data once the token is received
-            let requestData = {
-              cookie: getCookie('popshow-temp-id'),
-              text: answer,
-              token: token,
-              wording: question,
-            };
+  function startSpamLoop(url, question, answer, delay, instances, counter) {
+    for (let i = 0; i < instances; i++) {
+      setInterval(() => {
+        // Get reCAPTCHA token
+        grecaptcha.ready(() => {
+          grecaptcha
+            .execute('6Lc8pbEUAAAAAH1vRl91BAwIZruc_awYoPLL_9p1', {
+              action: 'message',
+            })
+            .then((token) => {
+              // Prepare request data once the token is received
+              let requestData = {
+                cookie: getCookie('popshow-temp-id'),
+                text: answer,
+                token: token,
+                wording: question,
+              };
 
-            // POST
-            postData(url, requestData).then((data) => {
-              // Increment counter
-              if (data.code)
-                counter.innerText = parseInt(counter.innerText) + 1;
+              // POST
+              postData(url, requestData).then((data) => {
+                // Increment counter
+                if (data.code)
+                  counter.innerText = parseInt(counter.innerText) + 1;
+              });
             });
-          });
-      });
-    }, delay);
+        });
+      }, delay);
+    }
   }
 
   function buildUi() {
@@ -136,6 +138,14 @@
             <input type="number" id="rate" min="1" value="500">
           </td>
         </tr>
+        <tr>
+          <td>
+            <label for="instances">Spam Instances:</label>
+          </td>
+          <td>
+            <input type="number" id="instances" min="1" value="1">
+          </td>
+        </tr>
       </tbody>
     </table>
     <button id="go-spam">Spam</button>
@@ -151,9 +161,10 @@
     let question = popup.document.querySelector('#question');
     let answer = popup.document.querySelector('#answer');
     let rate = popup.document.querySelector('#rate');
+    let instances = popup.document.querySelector('#instances');
     let sent = popup.document.querySelector('#sent');
 
-    return [goSpam, question, answer, rate, sent];
+    return [goSpam, question, answer, rate, instances, sent];
   }
 
   let postUrl =
@@ -168,6 +179,13 @@
 
   ui[0].onclick = () => {
     console.log('[Yolosmith] Beginning spam...');
-    getTokenAndSend(postUrl, ui[1].value, ui[2].value, ui[3].value, ui[4]);
+    startSpamLoop(
+      postUrl,
+      ui[1].value,
+      ui[2].value,
+      ui[3].value,
+      ui[4].value,
+      ui[5]
+    );
   };
 })();
