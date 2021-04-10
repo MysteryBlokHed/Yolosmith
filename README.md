@@ -7,14 +7,14 @@
 <!-- End of Badges -->
 <p align="center">A YOLO spammer.</p>
 
-## How to use
+## How to Use
 
-### UserScript extensions (eg. [Tampermonkey](https://www.tampermonkey.net/))
+### UserScript Extensions (eg. [Tampermonkey](https://www.tampermonkey.net/))
 
 If you have a UserScript extension installed,
 simply go to the [script](src/yolosmith.user.js) and press the "Raw" button.
 
-### Paste into console
+### Paste Into Console
 
 If you don't want to install an extension or you just want to run the code once,
 then you can just paste the code into console:
@@ -39,6 +39,15 @@ the button will increment with every message sent.
 Note: If you enter too low of a rate, you will be rate-limited by YOLO. You can tell
 when this happens if the sent message ocunter stops update. If this occurs, just wait
 5-10 minutes before trying again.
+
+## UI Fields
+
+| Field          | Explanation                                                            |
+| -------------- | ---------------------------------------------------------------------- |
+| Question       | Changing the question will change what it looks like your target asked |
+| Answer         | The response to spam                                                   |
+| Rate           | The delay between sent messages                                        |
+| Spam Instances | How many spam instances to run at the same time                        |
 
 ## License
 
