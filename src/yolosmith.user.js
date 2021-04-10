@@ -5,7 +5,7 @@
 // @homepage     https://github.com/MysteryBlokHed/Yolosmith
 // @author       MysteryBlokHed
 // @match        http://onyolo.com/m/*
-// @downloadURL  https://github.com/MysteryBlokHed/Yolosmith/raw/master/src/yolosmith.user.js
+// @downloadURL  https://github.com/MysteryBlokHed/Yolosmith/raw/stable/src/yolosmith.user.js
 // @supportURL   https://github.com/MysteryBlokHed/Yolosmith/issues
 // @grant        none
 // ==/UserScript==
