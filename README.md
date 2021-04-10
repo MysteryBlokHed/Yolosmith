@@ -11,7 +11,7 @@
 
 ### UserScript extensions (eg. [Tampermonkey](https://www.tampermonkey.net/))
 
-1. Go to the [script](src/yolosmith.js) and press the "Raw" button
+1. Go to the [script](src/yolosmith.user.js) and press the "Raw" button
 
 2. If the UserScript is not automatically installed, copy the contents
 
@@ -21,7 +21,7 @@
 
 ### Paste into console
 
-1. Go to the [script](src/yolosmith.js) and press the "Raw" button
+1. Go to the [script](src/yolosmith.user.js) and press the "Raw" button
 
 2. Copy the contents
 
