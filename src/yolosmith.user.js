@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         Yolosmith
-// @source       http://github.com/MysteryBlokHed/Yolosmith
-// @version      v0.1.0
 // @description  A YOLO spammer.
+// @version      0.1.0
+// @homepage     https://github.com/MysteryBlokHed/Yolosmith
 // @author       MysteryBlokHed
 // @match        http://onyolo.com/m/*
+// @downloadURL  https://github.com/MysteryBlokHed/Yolosmith/raw/master/src/yolosmith.user.js
+// @supportURL   https://github.com/MysteryBlokHed/Yolosmith/issues
 // @grant        none
 // ==/UserScript==
 /*
