@@ -98,79 +98,100 @@
   }
 
   function buildUi() {
-    let ui = `<style>
-  @font-face {
-    font-family: 'Matter';
-    src: url('https://d33e26whxge87.cloudfront.net/Matter-Medium.ttf') format('truetype');
-    font-display: swap;
-  }
+    let ui = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Yolosmith by MysteryBlokHed</title>
+    <style>
+      @font-face {
+        font-family: 'Matter';
+        src: url('https://d33e26whxge87.cloudfront.net/Matter-Medium.ttf')
+          format('truetype');
+        font-display: swap;
+      }
 
-  @font-face {
-    font-family: 'Matter';
-    src: url('https://d33e26whxge87.cloudfront.net/Matter-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-display: swap;
-  }
+      @font-face {
+        font-family: 'Matter';
+        src: url('https://d33e26whxge87.cloudfront.net/Matter-SemiBold.ttf')
+          format('truetype');
+        font-weight: 600;
+        font-display: swap;
+      }
 
-  @font-face {
-    font-family: 'Matter';
-    src: url('https://d33e26whxge87.cloudfront.net/Matter-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-display: swap;
-  }
-</style>
-<div align="center" style="font-family: 'Matter';">
-  <h1>Yolosmith</h1>
-  <h2>by MysteryBlokHed</h2>
-  <h2><a href="https://github.com/MysteryBlokHed/Yolosmith">GitHub</a></h2>
-  <div>
-    <table>
-      <tbody>
-        <tr>
-          <td>
-            <label for="question">Question:</label>
-          </td>
-          <td>
-            <input type="text" id="question" placeholder="What does Yolosmith do?">
-          </td>
-        </tr>
-        <tr>
-        </tr>
-        <tr>
-          <td>
-            <label for="answer">Answer:</label>
-          </td>
-          <td>
-            <input type="text" id="answer" placeholder="Spam">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="rate">Rate (in ms):</label>
-          </td>
-          <td>
-            <input type="number" id="rate" min="1" value="500">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="instances">Spam Instances:</label>
-          </td>
-          <td>
-            <input type="number" id="instances" min="1" value="1">
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <p>To add an incrementing counter to your message, put <code>%c</code> somewhere.
-    (eg. "This is message #%c")</p>
-    <button id="go-spam">Spam</button>
-  </div>
-  <b>Messages Sent:</b>
-  <span id="sent">0</span>
-</div>`;
+      @font-face {
+        font-family: 'Matter';
+        src: url('https://d33e26whxge87.cloudfront.net/Matter-Bold.ttf')
+          format('truetype');
+        font-weight: bold;
+        font-display: swap;
+      }
 
-    let popup = window.open('', '', 'width=350, height=400, scrollbars=no');
+      :not(code) {
+        font-family: Matter;
+      }
+    </style>
+  </head>
+  <body>
+    <div align="center">
+      <h1>Yolosmith</h1>
+      <h2>by MysteryBlokHed</h2>
+      <h2><a href="https://github.com/MysteryBlokHed/Yolosmith">GitHub</a></h2>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <label for="question">Question:</label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  id="question"
+                  placeholder="What does Yolosmith do?"
+                />
+              </td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td>
+                <label for="answer">Answer:</label>
+              </td>
+              <td>
+                <input type="text" id="answer" placeholder="Spam" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="rate">Rate (in ms):</label>
+              </td>
+              <td>
+                <input type="number" id="rate" min="1" value="500" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="instances">Spam Instances:</label>
+              </td>
+              <td>
+                <input type="number" id="instances" min="1" value="1" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          To add an incrementing counter to your message, put
+          <code>%c</code> somewhere (eg. <code>This is message #%c</code>)
+        </p>
+        <button id="go-spam">Spam</button>
+      </div>
+      <b>Messages Sent:</b>
+      <span id="sent">0</span>
+    </div>
+  </body>
+</html>`;
+
+    let popup = window.open('', '', 'width=350, height=450');
     popup.document.body.innerHTML = ui;
 
     let goSpam = popup.document.querySelector('#go-spam');
