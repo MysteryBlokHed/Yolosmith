@@ -81,8 +81,10 @@
                 wording: question,
               };
 
-              if (counter > 0) requestData.text = answer.replace('%c', counter);
-              counter++;
+              if (counter > 0) {
+                requestData.text = answer.replace('%c', counter);
+                counter++;
+              }
 
               // POST
               postData(url, requestData).then((data) => {
