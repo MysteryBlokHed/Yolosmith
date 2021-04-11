@@ -53,7 +53,17 @@
       .split('=')[1];
   }
 
-  function startSpamLoop(url, question, answer, delay, instances, counter) {
+  function startSpamLoop(
+    url,
+    question,
+    answer,
+    delay,
+    instances,
+    counterElement
+  ) {
+    let counter = 0;
+    if (answer.includes('%c')) counter = 1;
+
     for (let i = 0; i < instances; i++) {
       setInterval(() => {
         // Get reCAPTCHA token
@@ -71,11 +81,15 @@
                 wording: question,
               };
 
+              if (counter > 0) requestData.text = answer.replace('%c', counter);
+              counter++;
+
               // POST
               postData(url, requestData).then((data) => {
                 // Increment counter
                 if (data.code)
-                  counter.innerText = parseInt(counter.innerText) + 1;
+                  counterElement.innerText =
+                    parseInt(counterElement.innerText) + 1;
               });
             });
         });
@@ -148,13 +162,15 @@
         </tr>
       </tbody>
     </table>
+    <p>To add an incrementing counter to your message, put <code>%c</code> somewhere.
+    (eg. "This is message #%c")</p>
     <button id="go-spam">Spam</button>
   </div>
   <b>Messages Sent:</b>
   <span id="sent">0</span>
 </div>`;
 
-    let popup = window.open('', '', 'width=350, height=350, scrollbars=no');
+    let popup = window.open('', '', 'width=350, height=400, scrollbars=no');
     popup.document.body.innerHTML = ui;
 
     let goSpam = popup.document.querySelector('#go-spam');

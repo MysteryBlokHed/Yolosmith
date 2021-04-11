@@ -31,10 +31,8 @@ then you can just paste the code into console:
 
 6. Paste the contents and press enter
 
-A popup should open once you're on a YOLO page. If there is a question in the URL
-then it will be automatically used, but you can change if it you'd prefer.
-Just enter your answer and the delay, then press the "Spam" button. A counter below
-the button will increment with every message sent.
+A popup will open once you're on someone's YOLO page. A counter below the button will
+update while messages are sent.
 
 Note: If you enter too low of a rate, you will be rate-limited by YOLO. You can tell
 when this happens if the sent message ocunter stops update. If this occurs, just wait
