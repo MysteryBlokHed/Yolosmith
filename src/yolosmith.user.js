@@ -142,6 +142,10 @@
         text-decoration: underline;
       }
 
+      td:first-child {
+        text-align: right;
+      }
+
       input {
         padding: 10px;
         margin: 1px;
@@ -197,11 +201,12 @@
             </tr>
           </tbody>
         </table>
+        <br />
+        <button id="go-spam">Spam</button>
         <p>
           To add an incrementing counter to your message, put
           <code>%c</code> somewhere (eg. <code>This is message #%c</code>)
         </p>
-        <button id="go-spam">Spam</button>
       </div>
       <b>Messages Sent:</b>
       <span id="sent">0</span>
