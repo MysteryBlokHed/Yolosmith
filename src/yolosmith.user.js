@@ -115,14 +115,6 @@
 
       @font-face {
         font-family: 'Matter';
-        src: url('https://d33e26whxge87.cloudfront.net/Matter-SemiBold.ttf')
-          format('truetype');
-        font-weight: 600;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: 'Matter';
         src: url('https://d33e26whxge87.cloudfront.net/Matter-Bold.ttf')
           format('truetype');
         font-weight: bold;
