@@ -129,8 +129,25 @@
         font-display: swap;
       }
 
-      :not(code) {
+      body {
         font-family: Matter;
+      }
+
+      a {
+        color: blue;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      input {
+        padding: 10px;
+        margin: 1px;
+        border: 0;
+        box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+        border-radius: 10px;
       }
     </style>
   </head>
@@ -154,7 +171,6 @@
                 />
               </td>
             </tr>
-            <tr></tr>
             <tr>
               <td>
                 <label for="answer">Answer:</label>
@@ -193,7 +209,7 @@
   </body>
 </html>`;
 
-    let popup = window.open('', '', 'width=350, height=450');
+    let popup = window.open('', '', 'width=350, height=500');
     popup.document.body.innerHTML = ui;
 
     let goSpam = popup.document.querySelector('#go-spam');
