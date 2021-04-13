@@ -122,7 +122,7 @@
       }
 
       body {
-        font-family: Matter;
+        font-family: Matter, sans-serif;
       }
 
       a {
