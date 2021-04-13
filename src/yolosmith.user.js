@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yolosmith
 // @description  A YOLO spammer.
-// @version      0.1.0
+// @version      0.2.0
 // @homepage     https://github.com/MysteryBlokHed/Yolosmith
 // @author       MysteryBlokHed
 // @match        http://onyolo.com/m/*
