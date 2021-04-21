@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Yolosmith
 // @description  A YOLO spammer.
-// @version      0.2.0
+// @version      0.2.1
 // @homepage     https://github.com/MysteryBlokHed/Yolosmith
 // @author       MysteryBlokHed
-// @match        http://onyolo.com/m/*
+// @match        https://onyolo.com/m/*
 // @downloadURL  https://github.com/MysteryBlokHed/Yolosmith/raw/stable/src/yolosmith.user.js
 // @supportURL   https://github.com/MysteryBlokHed/Yolosmith/issues
 // @grant        none
@@ -36,7 +36,8 @@
       cache: 'no-cache',
       credentials: 'same-origin',
       headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json;charset=utf-8',
       },
       redirect: 'follow',
       referrerPolicy: 'strict-origin-when-cross-origin',
@@ -64,13 +65,15 @@
     let counter = 0;
     if (answer.includes('%c')) counter = 1;
 
+    let key = window.rSiteKey || '6Lc8pbEUAAAAAH1vRl91BAwIZruc_awYoPLL_9p1';
+
     for (let i = 0; i < instances; i++) {
       setInterval(() => {
         // Get reCAPTCHA token
         grecaptcha.ready(() => {
           grecaptcha
-            .execute('6Lc8pbEUAAAAAH1vRl91BAwIZruc_awYoPLL_9p1', {
-              action: 'message',
+            .execute(key, {
+              action: 'sendMessage',
             })
             .then((token) => {
               // Prepare request data once the token is received
@@ -220,7 +223,7 @@
   }
 
   let postUrl =
-    'http://onyolo.com/api/v2/messages/' +
+    'https://onyolo.com/api/v2/messages/' +
     window.location.pathname.substring(3);
 
   let ui = buildUi();
