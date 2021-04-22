@@ -183,7 +183,7 @@
                 <label for="rate">Rate (in ms):</label>
               </td>
               <td>
-                <input type="number" id="rate" min="1" value="500" />
+                <input type="number" id="rate" min="1" value="1000" />
               </td>
             </tr>
             <tr>
